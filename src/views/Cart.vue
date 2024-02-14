@@ -10,6 +10,7 @@
         <span>Brand: {{ product.brand }}</span>
         <span>Category: {{ product.category }}</span>
         <span>Price: ${{ product.price }}</span>
+        <button @click="removeFromCart(product.id)">Remove</button>
       </div>
     </div>
   </div>
@@ -21,6 +22,10 @@ import { useRouter } from 'vue-router'
 
 const productStore = productsStore()
 const router = useRouter()
+
+const removeFromCart = (id) => {
+  productStore.removeFromCart(id)
+}
 </script>
 
 <style scoped>
