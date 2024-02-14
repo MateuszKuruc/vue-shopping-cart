@@ -1,12 +1,18 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
+export const productsStore = defineStore({
+  id: 'products',
+  state: () => ({
+    products: []
+  }),
 
-  return { count, doubleCount, increment }
+  actions: {
+    fetchProductsFromDB() {
+      fetch('https://dummyjson.com/products/1')
+        .then((res) => res.json())
+        .then((json) => {
+          this.products = json.products
+        })
+    }
+  }
 })
