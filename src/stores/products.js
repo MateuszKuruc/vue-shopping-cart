@@ -8,7 +8,7 @@ export const productsStore = defineStore({
 
   actions: {
     fetchProductsFromDB() {
-      fetch('https://dummyjson.com/products/1')
+      fetch('https://dummyjson.com/products')
         .then((res) => res.json())
         .then((json) => {
           this.products = json.products
