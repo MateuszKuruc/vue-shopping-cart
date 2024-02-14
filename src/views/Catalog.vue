@@ -6,9 +6,10 @@
 import { onMounted } from 'vue'
 import { productsStore } from '@/stores/products'
 
-const productStore = productsStore();
+const productStore = productsStore()
 
 onMounted(() => {
   console.log('mounted')
+  productStore.fetchProductsFromDB()
 })
 </script>
