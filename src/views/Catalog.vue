@@ -1,6 +1,11 @@
 <template>
   <div class="products-list">
-    <div class="product-item" v-for="product in productStore.products" :key="product.id">
+    <div
+      class="product-item"
+      @click="openProductPage(product.id)"
+      v-for="product in productStore.products"
+      :key="product.id"
+    >
       <img :src="product.thumbnail" alt="" />
       <h2>Brand: {{ product.brand }}</h2>
       <p>Description: {{ product.description }}</p>
@@ -12,11 +17,16 @@
 <script setup>
 import { onMounted } from 'vue'
 import { productsStore } from '@/stores/products'
+import { useRouter } from 'vue-router'
 
 const productStore = productsStore()
+const router = useRouter()
+
+const openProductPage = (id) => {
+  router.push({ name: 'ProductView', params: { id } })
+}
 
 onMounted(() => {
-  console.log('mounted')
   productStore.fetchProductsFromDB()
 })
 </script>
@@ -36,5 +46,6 @@ onMounted(() => {
 }
 .product-item img {
   width: 70%;
+  /* height: 50%; */
 }
 </style>
