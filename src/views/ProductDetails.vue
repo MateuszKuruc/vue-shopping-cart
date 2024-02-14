@@ -27,9 +27,8 @@ const selectedProduct = computed(() => {
 })
 
 const addToCart = () => {
-    console.log('aaaaa')
+  productStore.addToCart(selectedProduct.value)
 }
-
 </script>
 
 <style scoped>

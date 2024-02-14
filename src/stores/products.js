@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 export const productsStore = defineStore({
   id: 'products',
   state: () => ({
-    products: []
+    products: [],
+    cart: []
   }),
 
   actions: {
@@ -13,6 +14,9 @@ export const productsStore = defineStore({
         .then((json) => {
           this.products = json.products
         })
+    },
+    addToCart(product) {
+      this.cart.push(product)
     }
   }
 })
