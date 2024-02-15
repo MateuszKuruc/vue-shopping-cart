@@ -32,8 +32,8 @@ export const productsStore = defineStore({
         existingItem.quantity -= 1
       } else {
         this.cart = this.cart.filter((item) => item.id !== id)
-        toast.info('Item removed from cart')
       }
+      toast.info('Item removed from cart')
     },
     removeFromCart(id) {
       this.cart = this.cart.filter((item) => item.id !== id)
