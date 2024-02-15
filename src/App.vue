@@ -1,11 +1,13 @@
 <template>
-  <NavBar> </NavBar>
-  <main class="mx-4">
+  <NavBar />
+  <main class="mx-4 min-h-[60vh]">
     <RouterView />
   </main>
+  <ShopFooter />
 </template>
 
 <script setup>
 import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
+import ShopFooter from './components/ShopFooter.vue'
 </script>
