@@ -1,7 +1,7 @@
 <template>
   <div class="products-list">
     <div
-      class="product-item"
+      class="gradient-border border-2 rounded-xl m-8 p-16 shadow-2xl cursor-pointer basis-[28%]"
       @click="openProductPage(product.id)"
       v-for="product in productStore.products"
       :key="product.id"
@@ -36,13 +36,6 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-.product-item {
-  flex-basis: 28%;
-  margin: 8px;
-  padding: 16px;
-  box-shadow: 0px 0px 14px 1px #e6e6e6;
-  cursor: pointer;
 }
 .product-item img {
   width: 70%;
