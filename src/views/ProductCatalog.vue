@@ -1,12 +1,12 @@
 <template>
-  <div class="products-list">
+  <div class="flex justify-between flex-wrap mt-16 mb-32">
     <div
-      class="gradient-border border-2 rounded-xl m-8 p-16 shadow-2xl cursor-pointer basis-[28%]"
+      class="category-container"
       @click="openProductPage(product.id)"
       v-for="product in productStore.products"
       :key="product.id"
     >
-      <img :src="product.thumbnail" alt="" />
+      <img class="w-[100%] rounded-xl object-cover" :src="product.thumbnail" alt="" />
       <h2>Brand: {{ product.brand }}</h2>
       <p>Description: {{ product.description }}</p>
       <p>Price: ${{ product.price }}</p>
@@ -30,15 +30,3 @@ onMounted(() => {
   productStore.fetchProductsFromDB()
 })
 </script>
-
-<style scoped>
-.products-list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.product-item img {
-  width: 70%;
-  /* height: 50%; */
-}
-</style>

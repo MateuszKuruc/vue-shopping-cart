@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap mt-16 mb-32 items-center">
+  <div class="flex flex-wrap mt-16 mb-32 items-cente">
     <div class="category-container">
       <img src="/hero.png" alt="" />
       <div class="category-description">

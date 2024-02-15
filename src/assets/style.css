@@ -4,13 +4,10 @@
 
 .category-container {
   flex-basis: 28%;
-  /* align-items: center; */
-  @apply m-8 text-left border-2 gradient-border;
-}
+  height: auto;
 
-.gradient-border {
-  border-image: linear-gradient(to right, #ff9800, #ffc107, #ff5722);
-  border-image-slice: 1;
+  @apply m-8 text-left border-2 border-orange-500
+    rounded-xl p-4 hover:bg-orange-100 ease-in-out duration-300;
 }
 
 .category-container img {
@@ -18,6 +15,7 @@
   width: 100%;
   height: 300px;
   object-fit: cover;
+  @apply rounded-xl;
 }
 
 .category-description {
