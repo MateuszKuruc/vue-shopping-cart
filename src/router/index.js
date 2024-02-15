@@ -1,5 +1,5 @@
-import Cart from '@/views/Cart.vue'
-import Catalog from '@/views/Catalog.vue'
+import ShoppingCart from '@/views/ShoppingCart.vue'
+import ProductCatalog from '@/views/ProductCatalog.vue'
 import ProductDetails from '@/views/ProductDetails.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'catalog',
-      component: Catalog
+      component: ProductCatalog
     },
     {
       path: '/product/:id',
@@ -19,7 +19,7 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'CartView',
-      component: Cart
+      component: ShoppingCart
     }
   ]
 })
