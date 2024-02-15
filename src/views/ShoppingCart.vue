@@ -10,6 +10,10 @@
         <span>Brand: {{ product.brand }}</span>
         <span>Category: {{ product.category }}</span>
         <span>Price: ${{ product.price }}</span>
+        <div class="quantity">
+          <button @click="productStore.addToCart(product)">+</button>{{ product.quantity
+          }}<button @click="productStore.decreaseItemQuantity(product.id)">-</button>
+        </div>
         <button @click="removeFromCart(product.id)">Remove</button>
       </div>
     </div>

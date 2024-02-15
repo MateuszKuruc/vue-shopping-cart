@@ -16,11 +16,20 @@ export const productsStore = defineStore({
         })
     },
     addToCart(product) {
-      const itemAlreadyAdded = this.cart.find((item) => item.id === product.id)
-      if (itemAlreadyAdded) {
-        itemAlreadyAdded.quantity += 1
+      const existingItem = this.cart.find((item) => item.id === product.id)
+      if (existingItem) {
+        existingItem.quantity += 1
       } else {
         this.cart.push({ ...product, quantity: 1 })
+      }
+    },
+  
+    decreaseItemQuantity(id) {
+      const existingItem = this.cart.find((item) => item.id === id)
+      if (existingItem.quantity > 1) {
+        existingItem.quantity -= 1
+      } else {
+        this.cart = this.cart.filter((item) => item.id !== id)
       }
     },
     removeFromCart(id) {
