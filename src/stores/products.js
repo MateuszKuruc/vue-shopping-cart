@@ -23,7 +23,6 @@ export const productsStore = defineStore({
         this.cart.push({ ...product, quantity: 1 })
       }
     },
-  
     decreaseItemQuantity(id) {
       const existingItem = this.cart.find((item) => item.id === id)
       if (existingItem.quantity > 1) {
