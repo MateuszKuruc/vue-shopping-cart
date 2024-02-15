@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex justify-around py-8 mx-4 mb-8 rounded-xl bg-gradient-to-r from-orange-500 via-amber-400 to-red-600"
+    class="sticky top-0 flex justify-around py-8 mx-4 mb-8 rounded-xl bg-gradient-to-r from-green-500 to-green-800 "
   >
     <ul class="flex gap-4 font-bold">
       <router-link to="/">Home page</router-link>
