@@ -1,10 +1,8 @@
 <template>
-  <header>
-    <div class="cart-items" @click="router.push({ name: 'CartView' })">
-      <p>Items in cart: {{ productStore.cart.length }}</p>
-    </div>
-  </header>
-  <main>
+  <NavBar>
+      
+  </NavBar>
+    <main>
     <RouterView />
   </main>
 </template>
@@ -12,6 +10,7 @@
 <script setup>
 import { RouterView, useRouter } from 'vue-router'
 import { productsStore } from './stores/products'
+import NavBar from './components/NavBar.vue';
 
 const router = useRouter()
 const productStore = productsStore()
