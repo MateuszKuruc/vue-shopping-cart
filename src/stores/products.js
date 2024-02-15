@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia'
+import { useToast } from 'vue-toastification'
+const toast = useToast()
 
 export const productsStore = defineStore({
   id: 'products',
@@ -21,6 +23,7 @@ export const productsStore = defineStore({
         existingItem.quantity += 1
       } else {
         this.cart.push({ ...product, quantity: 1 })
+        toast.success('Item added to cart')
       }
     },
     decreaseItemQuantity(id) {
@@ -29,6 +32,7 @@ export const productsStore = defineStore({
         existingItem.quantity -= 1
       } else {
         this.cart = this.cart.filter((item) => item.id !== id)
+        toast.info('Item removed from cart')
       }
     },
     removeFromCart(id) {
