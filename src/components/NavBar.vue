@@ -12,7 +12,9 @@
       <p>Items in cart: {{ itemsTotal }}</p>
     </div>
   </nav>
-  <div class="border-2 border-red-500 h-[300px] w-[100%]"></div>
+  <div class="border-2 border-black h-[300px] w-[100%]">
+    <img class="h-full w-full object-cover" src="/public/hero.png" alt="" />
+  </div>
 </template>
 
 <script setup>
