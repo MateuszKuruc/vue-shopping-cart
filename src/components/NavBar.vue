@@ -1,14 +1,14 @@
 <template>
   <nav
-    class="sticky top-0 flex justify-around py-8 mx-4 mb-8 rounded-xl bg-gradient-to-r from-green-500 to-green-800 "
+    class="sticky top-0 flex justify-around py-8 mx-4 mb-8 rounded-xl bg-gradient-to-r from-green-500 to-green-800"
   >
     <ul class="flex gap-4 font-bold">
       <router-link to="/">Home page</router-link>
       <router-link to="/categories">Categories</router-link>
       <router-link to="/about">About</router-link>
     </ul>
-    <div class="cart-items" @click="router.push({ name: 'CartView' })">
-      <p>Items in cart: {{ itemsTotal }}</p>
+    <div @click="router.push({ name: 'CartView' })">
+      <i class="fa badge fa-lg cursor-pointer" :value="itemsTotal">&#xf07a;</i>
     </div>
   </nav>
 </template>
