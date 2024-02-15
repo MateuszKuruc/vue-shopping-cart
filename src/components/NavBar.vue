@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-around py-8 mx-4 rounded-xl bg-gradient-to-r from-orange-500 via-amber-400 to-red-600">
+  <nav class="flex justify-around py-8 mx-4 mb-8 rounded-xl bg-gradient-to-r from-orange-500 via-amber-400 to-red-600">
     <ul class="flex gap-4 font-bold">
       <router-link to="/">Home page</router-link>
       <router-link to="/categories">Categories</router-link>
