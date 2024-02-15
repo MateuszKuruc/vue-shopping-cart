@@ -9,7 +9,7 @@
           <p class="text-2xl">${{ product.price }}</p>
         </div>
       </div>
-      <CartButton @click="addToCart" />
+      <CartButton @click="addToCart(product)" />
     </div>
   </div>
 </template>

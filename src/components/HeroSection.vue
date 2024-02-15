@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 border-black h-[300px] w-[100%]">
+  <div class="h-[300px] w-[100%] border-b-2 border-t-2 border-black">
     <img class="h-full w-full object-cover" src="/public/hero.png" alt="" />
   </div>
   <div class="flex gap-4 justify-center py-12">

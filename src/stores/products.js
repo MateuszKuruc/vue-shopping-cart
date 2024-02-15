@@ -23,8 +23,8 @@ export const productsStore = defineStore({
         existingItem.quantity += 1
       } else {
         this.cart.push({ ...product, quantity: 1 })
-        toast.success('Item added to cart')
       }
+      toast.success('Item added to cart')
     },
     decreaseItemQuantity(id) {
       const existingItem = this.cart.find((item) => item.id === id)

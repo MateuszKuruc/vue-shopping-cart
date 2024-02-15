@@ -1,7 +1,7 @@
 <template>
   <NavBar />
   <HeroSection />
-  <main class="mx-4 min-h-[60vh]">
+  <main class="min-h-[60vh]">
     <RouterView />
   </main>
   <ShopFooter />

@@ -1,14 +1,16 @@
 <template>
-  <BackButton @click="router.push({ name: 'Catalog' })" />
-  <div class="product">
-    <div class="product-image">
-      <img :src="selectedProduct.thumbnail" alt="" />
+  <BackButton class="ml-8" @click="router.push({ name: 'Catalog' })" />
+  <div class="flex mt-12">
+    <div class="ml-8 mr-24 w-[600px]">
+      <img class="rounded-xl max-h-[400px]" :src="selectedProduct.thumbnail" alt="" />
     </div>
-    <div class="product-details">
-      <p>Brand: {{ selectedProduct.brand }}</p>
-      <p>Description: {{ selectedProduct.description }}</p>
-      <h2>Price: {{ selectedProduct.price }}</h2>
-      <button @click="addToCart">Add to cart</button>
+    <div class="flex flex-col items-left justify-between">
+      <div class="flex flex-col gap-8">
+        <p>Brand: {{ selectedProduct.brand }}</p>
+        <p>Description: {{ selectedProduct.description }}</p>
+        <h2 class="text-2xl font-bold">Price: ${{ selectedProduct.price }}</h2>
+      </div>
+      <CartButton @click="addToCart(selectedProduct)" />
     </div>
   </div>
 </template>
@@ -18,6 +20,7 @@ import { computed } from 'vue'
 import { productsStore } from '@/stores/products'
 import { useRoute, useRouter } from 'vue-router'
 import BackButton from '@/components/BackButton.vue'
+import CartButton from '@/components/CartButton.vue'
 
 const productStore = productsStore()
 const route = useRoute()
@@ -31,13 +34,3 @@ const addToCart = () => {
   productStore.addToCart(selectedProduct.value)
 }
 </script>
-
-<style scoped>
-.product {
-  display: flex;
-  margin-top: 50px;
-}
-.product-image {
-  margin-right: 24px;
-}
-</style>
