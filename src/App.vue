@@ -1,5 +1,6 @@
 <template>
   <NavBar />
+  <HeroSection />
   <main class="mx-4 min-h-[60vh]">
     <RouterView />
   </main>
@@ -10,4 +11,5 @@
 import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 import ShopFooter from './components/ShopFooter.vue'
+import HeroSection from './components/HeroSection.vue'
 </script>
