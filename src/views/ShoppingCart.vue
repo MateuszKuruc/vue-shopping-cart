@@ -1,12 +1,12 @@
 <template>
   <button @click="router.push({ name: 'catalog' })">Back to catalog</button>
-  <div class="empty-cart" v-if="!productStore.cart.length">
-    <h1>Empty Cart...</h1>
+  <div class="text-center" v-if="!productStore.cart.length">
+    <h1 class="text-3xl font-bold">Empty Cart...</h1>
   </div>
   <div class="cart-items" v-else>
     <div class="cart-item" v-for="product in productStore.cart" :key="product.id">
-      <div class="item-details">
-        <img :src="product.thumbnail" alt="" />
+      <div class="flex justify-between items-center mb-32 shadow-2xl rounded-xl p-16">
+        <img :src="product.thumbnail" alt="" class="rounded-xl w-[20%]" />
         <span>Brand: {{ product.brand }}</span>
         <span>Category: {{ product.category }}</span>
         <span>Price: ${{ product.price }}</span>
@@ -31,26 +31,3 @@ const removeFromCart = (id) => {
   productStore.removeFromCart(id)
 }
 </script>
-
-<style scoped>
-.empty-cart {
-  text-align: center;
-}
-.cart-items {
-}
-.cart-item {
-}
-.item-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 32px;
-  box-shadow: 0 0 17px 6px #e7e7e7;
-  border-radius: 8px;
-  padding: 16px;
-}
-.item-details img {
-  width: 20%;
-  /* border-radius: 2rem; */
-}
-</style>
