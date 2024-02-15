@@ -1,5 +1,5 @@
 <template>
-  <button @click="router.push({ name: 'catalog' })">Back to Catalog</button>
+  <BackButton @click="router.push({ name: 'Catalog' })" />
   <div class="product">
     <div class="product-image">
       <img :src="selectedProduct.thumbnail" alt="" />
@@ -17,6 +17,7 @@
 import { computed } from 'vue'
 import { productsStore } from '@/stores/products'
 import { useRoute, useRouter } from 'vue-router'
+import BackButton from '@/components/BackButton.vue'
 
 const productStore = productsStore()
 const route = useRoute()

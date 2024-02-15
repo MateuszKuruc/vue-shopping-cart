@@ -1,5 +1,5 @@
 <template>
-  <button @click="router.push({ name: 'catalog' })">Back to catalog</button>
+  <BackButton @click="router.push({ name: 'Catalog' })" />
   <div class="text-center" v-if="!productStore.cart.length">
     <h1 class="text-3xl font-bold">Empty Cart...</h1>
   </div>
@@ -23,6 +23,7 @@
 <script setup>
 import { productsStore } from '@/stores/products'
 import { useRouter } from 'vue-router'
+import BackButton from '../components/BackButton.vue'
 
 const productStore = productsStore()
 const router = useRouter()
