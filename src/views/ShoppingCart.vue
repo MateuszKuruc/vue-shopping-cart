@@ -1,7 +1,7 @@
 <template>
   <BackButton class="ml-8" @click="router.push({ name: 'Catalog' })" />
   <div class="text-center" v-if="!productStore.cart.length">
-    <h1 class="text-3xl font-bold">The cart is empty</h1>
+    <h1 class="text-3xl font-bold md:mt-0 mt-14">The cart is empty</h1>
   </div>
   <div v-else>
     <div v-for="product in productStore.cart" :key="product.id">
