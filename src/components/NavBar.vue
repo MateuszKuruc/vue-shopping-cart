@@ -35,7 +35,9 @@
           >
         </li>
         <div class="ml-12 h-[100%]" @click="router.push({ name: 'CartView' })">
-          <i class="fa badge fa-lg cursor-pointer hover:text-green-500" :value="itemsTotal">&#xf07a;</i>
+          <i class="fa badge fa-lg cursor-pointer hover:text-green-500" :value="itemsTotal"
+            >&#xf07a;</i
+          >
         </div>
       </ul>
       <div
@@ -105,6 +107,7 @@ const mobileNav = ref(null)
 const windowWidth = ref(null)
 
 onMounted(() => {
+  checkScreen()
   window.addEventListener('resize', resizeHandler)
 })
 
