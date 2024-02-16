@@ -37,6 +37,7 @@ export const productsStore = defineStore({
     },
     removeFromCart(id) {
       this.cart = this.cart.filter((item) => item.id !== id)
+      toast.info('Item removed from cart')
     }
   }
 })
