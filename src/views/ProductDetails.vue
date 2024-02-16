@@ -1,16 +1,16 @@
 <template>
-  <BackButton class="ml-8" @click="router.push({ name: 'Catalog' })" />
-  <div class="flex mt-12">
-    <div class="ml-8 mr-24 w-[600px]">
+  <BackButton class="md:ml-8 ml-2" @click="router.push({ name: 'Catalog' })" />
+  <div class="flex md:flex-row flex-col mt-12">
+    <div class="md:ml-8 md:mr-24 md:w-[600px] mx-2">
       <img class="rounded-xl max-h-[400px]" :src="selectedProduct.thumbnail" alt="" />
     </div>
-    <div class="flex flex-col items-left justify-between">
-      <div class="flex flex-col gap-8">
+    <div class="flex flex-col items-center justify-between md:mt-0 mt-4">
+      <div class="flex flex-col md:gap-8 gap-4 md:mx-0 mx-4">
         <p>Brand: {{ selectedProduct.brand }}</p>
         <p>Description: {{ selectedProduct.description }}</p>
         <h2 class="text-2xl font-bold">Price: ${{ selectedProduct.price }}</h2>
       </div>
-      <CartButton @click="addToCart(selectedProduct)" />
+      <CartButton class="md:mb-0 mb-8" @click="addToCart(selectedProduct)" />
     </div>
   </div>
 </template>
