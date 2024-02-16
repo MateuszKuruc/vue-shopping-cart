@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-[300px] w-[100%] max-w-[1920px] mx-0 md:block hidden border-2 border-black rounded-xl"
+    class="md:h-[500px] w-[100%] max-w-[1920px] mx-0 md:block hidden border-2 border-black rounded-xl"
   >
     <img class="h-full w-full object-cover rounded-xl" src="/public/hero.png" alt="" />
   </div>
