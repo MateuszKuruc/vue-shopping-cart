@@ -202,13 +202,22 @@ nav {
     }
   }
   .router-link-exact-active {
-    /* border-bottom: lightblue; */
-    /* border: 1px solid; */
-    /* border-color: lightblue; */
-    /* color: purple; */
-    /* background-color: red; */
     border-bottom: 1px solid lightblue;
     color: lightblue;
   }
+}
+
+.mobile-nav-enter-active,
+.mobile-nav-leave-active {
+  transition: 1s ease all;
+}
+
+.mobile-nav-enter-from,
+.mobile-nav-leave-to {
+  transform: translateX(-250px);
+}
+
+.mobile-nav-enter-to {
+  transform: translateX(0);
 }
 </style>
