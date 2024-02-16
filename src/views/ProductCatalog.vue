@@ -1,6 +1,10 @@
 <template>
-  <div class="flex justify-between flex-wrap mt-16 mb-32">
-    <div class="category-container flex flex-col items-center" v-for="product in productStore.products" :key="product.id">
+  <div class="flex justify-around flex-wrap md:mt-16 mt-8 md:mb-32 mb-8">
+    <div
+      class="category-container flex flex-col items-center"
+      v-for="product in productStore.products"
+      :key="product.id"
+    >
       <div @click="openProductPage(product.id)">
         <img class="w-[100%] rounded-xl object-cover" :src="product.thumbnail" alt="" />
         <div class="h-[150px] flex flex-col justify-between gap-2 mt-4">
