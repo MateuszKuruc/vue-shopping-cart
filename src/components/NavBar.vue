@@ -77,6 +77,7 @@ const itemsTotal = computed(() => {
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
 const mobile = ref(null)
 const mobileNav = ref(null)
 const windowWidth = ref(null)
@@ -199,6 +200,15 @@ nav {
         color: #000;
       }
     }
+  }
+  .router-link-exact-active {
+    /* border-bottom: lightblue; */
+    /* border: 1px solid; */
+    /* border-color: lightblue; */
+    /* color: purple; */
+    /* background-color: red; */
+    border-bottom: 1px solid lightblue;
+    color: lightblue;
   }
 }
 </style>
