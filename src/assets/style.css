@@ -12,9 +12,9 @@
 .category-container img {
   /* max-width: 500px; */
   width: 100%;
-  height: 300px;
+  /* height: 300px; */
   object-fit: cover;
-  @apply rounded-xl;
+  @apply rounded-xl md:h-[300px] h-[200px];
 }
 
 .category-description {
