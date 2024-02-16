@@ -49,7 +49,13 @@ const itemsTotal = computed(() => {
         <li>
           <router-link class="link" :to="{ name: 'About' }">About</router-link>
         </li>
+        <div class="ml-12" @click="router.push({ name: 'CartView' })">
+          <i class="fa badge fa-lg cursor-pointer" :value="itemsTotal">&#xf07a;</i>
+        </div>
       </ul>
+      <div class="absolute flex items-center h-[70%] right-24" @click="router.push({ name: 'CartView' })">
+          <i v-show="mobile" class="fa badge fa-lg cursor-pointer" :value="itemsTotal">&#xf07a;</i>
+        </div>
       <div class="icon">
         <i
           @click="toggleMobileNav"
@@ -76,7 +82,20 @@ const itemsTotal = computed(() => {
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { productsStore } from '@/stores/products'
+
+const router = useRouter()
+const productStore = productsStore()
+
+const itemsTotal = computed(() => {
+  let quantityTotal = 0
+  productStore.cart.forEach((item) => {
+    quantityTotal += Number(item.quantity)
+  })
+  return quantityTotal
+})
 
 const mobile = ref(null)
 const mobileNav = ref(null)
