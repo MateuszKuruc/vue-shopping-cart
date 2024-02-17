@@ -12,7 +12,6 @@
           alt=""
         />
       </div>
-      <p>check: {{ productStore.searchValue }}</p>
       <ul v-show="!mobile" class="flex items-center flex-1 justify-end text-black">
         <SearchBar />
         <li class="uppercase flex">
