@@ -13,21 +13,21 @@
         />
       </div>
       <ul v-show="!mobile" class="flex items-center flex-1 justify-end">
-        <li class="uppercase p-16 ml-16 flex">
+        <li class="uppercase flex">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
             :to="{ name: 'Catalog' }"
             >Home</router-link
           >
         </li>
-        <li class="uppercase p-16 ml-16 flex">
+        <li class="uppercase mx-16 flex">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
             :to="{ name: 'Categories' }"
             >Categories</router-link
           >
         </li>
-        <li class="uppercase p-16 ml-16 flex">
+        <li class="uppercase flex">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
             :to="{ name: 'About' }"
@@ -57,23 +57,23 @@
       <transition name="mobile-nav">
         <ul
           v-show="mobileNav"
-          class="flex flex-col w-[100%] fixed max-w-[250px] h-[100%] bg-white top-0 left-0 gap-6"
+          class="flex flex-col w-[100%] fixed max-w-[250px] h-[100%] bg-white top-0 left-0 gap-6 pt-8 rounded-r-xl"
         >
-          <li class="ml-0">
+          <li class="p-3">
             <router-link
               class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
               :to="{ name: 'Catalog' }"
               >Home</router-link
             >
           </li>
-          <li class="ml-0">
+          <li class="p-3">
             <router-link
               class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
               :to="{ name: 'Categories' }"
               >Categories</router-link
             >
           </li>
-          <li class="ml-0">
+          <li class="p-3">
             <router-link
               class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
               :to="{ name: 'About' }"
