@@ -12,7 +12,9 @@
           alt=""
         />
       </div>
-      <ul v-show="!mobile" class="flex items-center flex-1 justify-end">
+      <p>check: {{ productStore.searchValue }}</p>
+      <ul v-show="!mobile" class="flex items-center flex-1 justify-end text-black">
+        <SearchBar />
         <li class="uppercase flex">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
@@ -34,6 +36,7 @@
             >About</router-link
           >
         </li>
+
         <div class="ml-12 h-[100%]" @click="router.push({ name: 'CartView' })">
           <i class="fa badge fa-lg cursor-pointer hover:text-green-500" :value="itemsTotal"
             >&#xf07a;</i
@@ -90,6 +93,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { productsStore } from '@/stores/products'
+import SearchBar from './SearchBar.vue'
 
 const router = useRouter()
 const productStore = productsStore()

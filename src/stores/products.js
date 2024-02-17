@@ -6,7 +6,8 @@ export const productsStore = defineStore({
   id: 'products',
   state: () => ({
     products: [],
-    cart: []
+    cart: [],
+    searchValue: ''
   }),
 
   actions: {
