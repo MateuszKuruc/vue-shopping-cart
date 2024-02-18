@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { computed } from 'vue'
 import { productsStore } from '@/stores/products'
 import { useRoute, useRouter } from 'vue-router'
 import BackButton from '@/components/BackButton.vue'
@@ -26,13 +26,11 @@ const productStore = productsStore()
 const route = useRoute()
 const router = useRouter()
 
-const displayedProduct = ref([])
-
-onMounted(async () => {
+const displayedProduct = computed(() => {
   if (!productStore.products.length) {
-    await productStore.fetchProductsFromDB()
+    productStore.fetchProductsFromDB()
   }
-  displayedProduct.value = productStore.products.find((item) => item.id === route.params.id)
+  return productStore.products.find((product) => product.id === route.params.id)
 })
 
 const addToCart = () => {
