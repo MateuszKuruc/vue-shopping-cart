@@ -1,5 +1,5 @@
 <template>
-  <BackButton class="md:ml-8 ml-2" @click="router.push({ name: 'Catalog' })" />
+  <BackButton class="md:ml-8 ml-2" @click="router.go(-1)" />
   <div class="flex md:flex-row flex-col mt-12">
     <div class="md:ml-8 md:mr-24 md:w-[600px] mx-2">
       <img class="rounded-xl max-h-[400px]" :src="selectedProduct.thumbnail" alt="" />

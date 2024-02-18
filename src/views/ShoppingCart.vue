@@ -1,5 +1,5 @@
 <template>
-  <BackButton class="ml-8 md:mb-8 mt-8" @click="router.push({ name: 'Catalog' })" />
+  <BackButton class="md:ml-8 ml-2" @click="router.go(-1)" />
   <div class="text-center" v-if="!productStore.cart.length">
     <h1 class="text-3xl font-bold md:mt-0 mt-14">The cart is empty</h1>
   </div>
