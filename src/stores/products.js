@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
 import { db } from '@/firebase'
 import { getDocs, collection } from 'firebase/firestore'
-import { ref, onMounted } from 'vue'
 
 const toast = useToast()
 
@@ -22,19 +21,14 @@ export const productsStore = defineStore({
     //       this.products = json.products
     //     })
     // },
-    // fetchProductsFromDB() {
-    //   onMounted(async () => {
-    //     let productCollection = await getDocs(collection(db, 'products'))
-    //     productCollection.forEach((product) => {
-    //       console.log(product.data())
-    //     })
-    //   })
-    // },
+
     async fetchProductsFromDB() {
       const productCollection = await getDocs(collection(db, 'products'))
-      productCollection.forEach((product) => {
-        console.log(product.data())
-      })
+      const productsArray = productCollection.docs.map((product) => product.data())
+
+      this.products = productsArray
+
+      console.log('array', productsArray)
     },
     addToCart(product) {
       const existingItem = this.cart.find((item) => item.id === product.id)

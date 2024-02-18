@@ -27,7 +27,7 @@ const route = useRoute()
 const router = useRouter()
 
 const selectedProduct = computed(() => {
-  return productStore.products.find((item) => item.id === Number(route.params.id))
+  return productStore.products.find((item) => item.id === route.params.id)
 })
 
 const addToCart = () => {
