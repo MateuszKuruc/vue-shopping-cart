@@ -3,6 +3,7 @@ import ProductCatalog from '@/views/ProductCatalog.vue'
 import ProductDetails from '@/views/ProductDetails.vue'
 import ProductCategories from '@/views/ProductCategories.vue'
 import AboutView from '@/views/AboutView.vue'
+import ProductCategory from '@/views/ProductCategory.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -17,6 +18,11 @@ const router = createRouter({
       path: '/categories',
       name: 'Categories',
       component: ProductCategories
+    },
+    {
+      path: '/categories/:id',
+      name: 'Category',
+      component: ProductCategory
     },
     {
       path: '/about',
