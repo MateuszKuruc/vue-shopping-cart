@@ -24,7 +24,13 @@ export const productsStore = defineStore({
     },
     fetchCartFromLocal() {
       const storedCart = localStorage.getItem('cart')
-      this.cart = storedCart ? JSON.parse(storedCart) : []
+      if (storedCart.length > 0) {
+        this.cart = JSON.parse(storedCart)
+      }
+    },
+    setCart(data) {
+      this.cart = data
+      localStorage.setItem('cart', JSON.stringify(this.cart))
     },
     addToCart(product) {
       const existingItem = this.cart.find((item) => item.id === product.id)
@@ -35,6 +41,7 @@ export const productsStore = defineStore({
       }
       localStorage.setItem('cart', JSON.stringify(this.cart))
       toast.success('Item added to cart')
+      console.log('local storage cart', localStorage.getItem('cart'))
     },
     decreaseItemQuantity(id) {
       const existingItem = this.cart.find((item) => item.id === id)

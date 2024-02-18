@@ -99,6 +99,10 @@ const productStore = productsStore()
 
 const itemsTotal = computed(() => {
   let quantityTotal = 0
+  const storedCart = localStorage.getItem('cart')
+  if (storedCart.length > 0) {
+    productStore.setCart(JSON.parse(storedCart))
+  }
   productStore.cart.forEach((item) => {
     quantityTotal += Number(item.quantity)
   })
