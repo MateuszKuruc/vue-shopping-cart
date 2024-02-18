@@ -29,7 +29,9 @@ const router = useRouter()
 const displayedProduct = ref(null)
 
 onMounted(async () => {
-  await productStore.fetchProductsFromDB()
+  if (!productStore.products.length) {
+    await productStore.fetchProductsFromDB()
+  }
   displayedProduct.value = productStore.products.find((item) => item.id === route.params.id)
 })
 
