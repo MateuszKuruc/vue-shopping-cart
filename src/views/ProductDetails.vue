@@ -26,7 +26,7 @@ const productStore = productsStore()
 const route = useRoute()
 const router = useRouter()
 
-const displayedProduct = ref(null)
+const displayedProduct = ref([])
 
 onMounted(async () => {
   if (!productStore.products.length) {

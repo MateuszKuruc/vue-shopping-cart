@@ -37,6 +37,9 @@ const addToCart = (product) => {
 }
 
 const filteredProducts = computed(() => {
+  if (!productStore.products.length) {
+    productStore.fetchProductsFromDB()
+  }
   return productStore.products.filter((product) => product.category === route.params.id)
 })
 </script>
