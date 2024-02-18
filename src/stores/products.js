@@ -14,14 +14,6 @@ export const productsStore = defineStore({
   }),
 
   actions: {
-    // fetchProductsFromDB() {
-    //   fetch('https://dummyjson.com/products')
-    //     .then((res) => res.json())
-    //     .then((json) => {
-    //       this.products = json.products
-    //     })
-    // },
-
     async fetchProductsFromDB() {
       const productCollection = await getDocs(collection(db, 'products'))
       const productsArray = productCollection.docs.map((product) => product.data())
@@ -30,6 +22,10 @@ export const productsStore = defineStore({
 
       console.log('array', productsArray)
     },
+    fetchCartFromLocal() {
+      const storedCart = localStorage.getItem('cart')
+      this.cart = storedCart ? JSON.parse(storedCart) : []
+    },
     addToCart(product) {
       const existingItem = this.cart.find((item) => item.id === product.id)
       if (existingItem) {
@@ -37,6 +33,7 @@ export const productsStore = defineStore({
       } else {
         this.cart.push({ ...product, quantity: 1 })
       }
+      localStorage.setItem('cart', JSON.stringify(this.cart))
       toast.success('Item added to cart')
     },
     decreaseItemQuantity(id) {
@@ -46,10 +43,12 @@ export const productsStore = defineStore({
       } else {
         this.cart = this.cart.filter((item) => item.id !== id)
       }
+      localStorage.setItem('cart', JSON.stringify(this.cart))
       toast.info('Item removed from cart')
     },
     removeFromCart(id) {
       this.cart = this.cart.filter((item) => item.id !== id)
+      localStorage.setItem('cart', JSON.stringify(this.cart))
       toast.info('Item removed from cart')
     }
   }
