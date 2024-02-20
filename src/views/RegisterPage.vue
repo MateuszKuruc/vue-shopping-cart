@@ -10,24 +10,43 @@
 
 <script setup>
 import { ref } from 'vue'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from 'firebase/auth'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 
 const email = ref('')
 const password = ref('')
 const router = useRouter()
+const toast = useToast()
 
 const registerAccount = () => {
   createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-    .then((data) => {
+    .then(() => {
       console.log('successfully registered')
+      toast.success('User account created!')
       router.push({ name: 'Catalog' })
     })
     .catch((error) => {
       console.log(error.code)
+      toast.error('User account could not be created')
       alert(error.message)
     })
 }
 
-const signInWithGoogle = () => {}
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(), provider)
+    .then(() => {
+      toast.success('User account created!')
+      router.push({ name: 'Catalog' })
+    })
+    .catch(() => {
+      toast.error('User account could not be created')
+    })
+}
 </script>
