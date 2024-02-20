@@ -9,7 +9,7 @@
       class="p-3 rounded-xl w-[250px]"
     />
     <ConfirmButton class="w-[250px]" @click="registerAccount">Submit</ConfirmButton>
-    <GoogleButton class="w-[250px]" @click="signInWithGoogle" />
+    <GoogleButton class="w-[250px] mt-0" @click="signInWithGoogle" />
   </div>
 </template>
 
