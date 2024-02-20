@@ -36,12 +36,20 @@
             >About</router-link
           >
         </li>
-        <li class="uppercase flex">
+        <li class="uppercase flex" v-if="!productStore.login">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
             :to="{ name: 'LoginPage' }"
             >Login</router-link
           >
+        </li>
+        <li class="uppercase flex" v-if="productStore.login">
+          <button
+            class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500 uppercase"
+            @click="handleSignOut"
+          >
+            Logout
+          </button>
         </li>
 
         <div class="ml-12 h-[100%]" @click="router.push({ name: 'CartView' })">
@@ -54,7 +62,12 @@
         class="absolute flex items-center h-[30%] right-32"
         @click="router.push({ name: 'CartView' })"
       >
-        <i v-show="mobile" class="fa badge fa-lg cursor-pointer" :value="itemsTotal">&#xf07a;</i>
+        <i
+          v-show="mobile"
+          class="fa badge fa-lg cursor-pointer hover:text-green-500"
+          :value="itemsTotal"
+          >&#xf07a;</i
+        >
       </div>
       <div class="flex items-center absolute top-0 right-12 h-[100%]">
         <i
@@ -90,13 +103,21 @@
               >About</router-link
             >
           </li>
-          <li class="p-3">
+          <li class="p-3" v-if="!productStore.login">
             <router-link
               class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
               :to="{ name: 'LoginPage' }"
             >
               Login
             </router-link>
+          </li>
+          <li class="p-3" v-if="productStore.login">
+            <button
+              class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
+              @click="handleSignOut"
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </transition>
@@ -109,6 +130,8 @@ import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { productsStore } from '@/stores/products'
 import SearchBar from './SearchBar.vue'
+
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 
 const router = useRouter()
 const productStore = productsStore()
@@ -140,6 +163,14 @@ const resizeHandler = () => {
 
 const toggleMobileNav = () => {
   mobileNav.value = !mobileNav.value
+}
+
+const handleSignOut = () => {
+  const auth = getAuth()
+  signOut(auth).then(() => {
+    productStore.setLogin(false)
+    router.push({ name: 'Catalog' })
+  })
 }
 
 const checkScreen = () => {
