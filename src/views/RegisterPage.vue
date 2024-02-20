@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center">
-    <h1>Create an account</h1>
+    <h1 class="text-3xl">Create an account</h1>
     <input type="text" placeholder="Email" v-model="email" />
     <input type="password" placeholder="Password" v-model="password" />
     <button @click="registerAccount" class="border-2">Submit</button>

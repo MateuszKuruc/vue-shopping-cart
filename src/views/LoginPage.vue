@@ -1,8 +1,14 @@
 <template>
   <div class="flex flex-col items-center">
-    <h1>Create an account</h1>
+    <h1 class="text-3xl">Log into account</h1>
     <input type="text" placeholder="Email" v-model="email" />
     <input type="password" placeholder="Password" v-model="password" />
+    <p>
+      Don't have an account? Create one
+      <router-link class="text-purple-500 hover:text-purple-800" :to="{ name: 'RegisterPage' }"
+        >here</router-link
+      >
+    </p>
     <p v-if="errMsg">{{ errMsg }}</p>
     <button @click="signIntoAccount" class="border-2">Submit</button>
     <button @click="signInWithGoogle" class="border-2">Sign in with Google</button>
