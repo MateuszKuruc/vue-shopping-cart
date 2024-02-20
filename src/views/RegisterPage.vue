@@ -1,10 +1,15 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center pt-12 gap-4">
     <h1 class="text-3xl">Create an account</h1>
-    <input type="text" placeholder="Email" v-model="email" />
-    <input type="password" placeholder="Password" v-model="password" />
-    <button @click="registerAccount" class="border-2">Submit</button>
-    <button @click="signInWithGoogle" class="border-2">Sign in with Google</button>
+    <input type="text" placeholder="Email" v-model="email" class="p-3 rounded-xl w-[250px]" />
+    <input
+      type="password"
+      placeholder="Password"
+      v-model="password"
+      class="p-3 rounded-xl w-[250px]"
+    />
+    <ConfirmButton class="w-[250px]" @click="registerAccount">Submit</ConfirmButton>
+    <GoogleButton class="w-[250px]" @click="signInWithGoogle" />
   </div>
 </template>
 
@@ -18,6 +23,8 @@ import {
 } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import { useToast } from 'vue-toastification'
+import ConfirmButton from '@/components/ConfirmButton.vue'
+import GoogleButton from '@/components/GoogleButton.vue'
 
 const email = ref('')
 const password = ref('')
