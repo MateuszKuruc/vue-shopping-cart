@@ -43,7 +43,7 @@
             >Login</router-link
           >
         </li>
-        <li class="uppercase flex" v-if="productStore.login">
+        <li class="uppercase flex" v-if="getAuth().currentUser">
           <button
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500 uppercase"
             @click="handleSignOut"
@@ -111,7 +111,7 @@
               Login
             </router-link>
           </li>
-          <li class="p-3" v-if="productStore.login">
+          <li class="p-3" v-if="getAuth().currentUser">
             <button
               class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
               @click="handleSignOut"

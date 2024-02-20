@@ -11,7 +11,7 @@ export const productsStore = defineStore({
     products: [],
     cart: [],
     searchValue: '',
-    login: false
+    login: null
   }),
 
   actions: {
