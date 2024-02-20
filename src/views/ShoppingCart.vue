@@ -22,6 +22,7 @@
         <RemoveButton @click="removeFromCart(product.id)">Remove</RemoveButton>
       </div>
     </div>
+    <button @click="router.push({ name: 'ConfirmOrder' })">Confirm order and pay</button>
   </div>
 </template>
 

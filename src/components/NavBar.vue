@@ -36,14 +36,14 @@
             >About</router-link
           >
         </li>
-        <li class="uppercase flex" v-if="!productStore.login">
+        <li class="uppercase flex" v-if="!loggedIn">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
             :to="{ name: 'LoginPage' }"
             >Login</router-link
           >
         </li>
-        <li class="uppercase flex" v-if="getAuth().currentUser">
+        <li class="uppercase flex" v-if="loggedIn">
           <button
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500 uppercase"
             @click="handleSignOut"
@@ -103,7 +103,7 @@
               >About</router-link
             >
           </li>
-          <li class="p-3" v-if="!productStore.login">
+          <li class="p-3" v-if="!loggedIn">
             <router-link
               class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
               :to="{ name: 'LoginPage' }"
@@ -111,7 +111,7 @@
               Login
             </router-link>
           </li>
-          <li class="p-3" v-if="getAuth().currentUser">
+          <li class="p-3" v-if="loggedIn">
             <button
               class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
               @click="handleSignOut"
@@ -151,10 +151,19 @@ const itemsTotal = computed(() => {
 const mobile = ref(null)
 const mobileNav = ref(null)
 const windowWidth = ref(null)
+const loggedIn = ref(null)
 
 onMounted(() => {
   checkScreen()
   window.addEventListener('resize', resizeHandler)
+
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    loggedIn.value = user
+  })
+
+  // Initial value
+  loggedIn.value = auth.currentUser
 })
 
 const resizeHandler = () => {
