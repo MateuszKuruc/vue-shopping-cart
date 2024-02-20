@@ -1,6 +1,9 @@
 import ProductCatalog from '@/views/ProductCatalog.vue'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { createRouter, createWebHistory } from 'vue-router'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -76,8 +79,9 @@ router.beforeEach(async (to, from, next) => {
       next()
     } else {
       console.log(getAuth().currentUser)
-      alert('you dont have access!')
-      next('/')
+      // alert('you dont have access!')
+      toast.info('No access, please log in')
+      next('/login')
     }
   } else {
     next()

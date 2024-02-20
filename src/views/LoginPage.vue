@@ -10,8 +10,7 @@
       >
     </p>
     <p v-if="errMsg">{{ errMsg }}</p>
-    <button @click="signIntoAccount" class="border-2">Submit</button>
-    <button @click="signInWithGoogle" class="border-2">Sign in with Google</button>
+    <button @click="signIntoAccount" class="border-2">Log in</button>
   </div>
 </template>
 

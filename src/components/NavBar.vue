@@ -130,11 +130,12 @@ import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { productsStore } from '@/stores/products'
 import SearchBar from './SearchBar.vue'
-
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import { useToast } from 'vue-toastification'
 
 const router = useRouter()
 const productStore = productsStore()
+const toast = useToast()
 
 const itemsTotal = computed(() => {
   let quantityTotal = 0
@@ -178,6 +179,7 @@ const handleSignOut = () => {
   const auth = getAuth()
   signOut(auth).then(() => {
     router.push({ name: 'Catalog' })
+    toast.success('Logged out successfully')
   })
 }
 
