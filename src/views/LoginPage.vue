@@ -1,8 +1,13 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center pt-12 gap-4">
     <h1 class="text-3xl">Log into account</h1>
-    <input type="text" placeholder="Email" v-model="email" />
-    <input type="password" placeholder="Password" v-model="password" />
+    <input type="text" placeholder="Email" v-model="email" class="p-3 rounded-xl w-[250px]" />
+    <input
+      type="password"
+      placeholder="Password"
+      v-model="password"
+      class="p-3 rounded-xl w-[250px]"
+    />
     <p>
       Don't have an account? Create one
       <router-link class="text-purple-500 hover:text-purple-800" :to="{ name: 'RegisterPage' }"
@@ -10,7 +15,8 @@
       >
     </p>
     <p v-if="errMsg">{{ errMsg }}</p>
-    <button @click="signIntoAccount" class="border-2">Log in</button>
+
+    <ConfirmButton @click="signIntoAccount">Log in</ConfirmButton>
   </div>
 </template>
 
@@ -19,6 +25,7 @@ import { ref } from 'vue'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import { useToast } from 'vue-toastification'
+import ConfirmButton from '@/components/ConfirmButton.vue'
 
 const email = ref('')
 const password = ref('')
@@ -58,6 +65,4 @@ const signIntoAccount = () => {
       }
     })
 }
-
-const signInWithGoogle = () => {}
 </script>

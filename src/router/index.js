@@ -75,11 +75,8 @@ const getCurrentUser = () => {
 router.beforeEach(async (to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (await getCurrentUser()) {
-      console.log(getAuth().currentUser)
       next()
     } else {
-      console.log(getAuth().currentUser)
-      // alert('you dont have access!')
       toast.info('No access, please log in')
       next('/login')
     }

@@ -10,7 +10,7 @@
         <p>Description: {{ displayedProduct.description }}</p>
         <h2 class="text-2xl font-bold">Price: ${{ displayedProduct.price }}</h2>
       </div>
-      <CartButton class="md:mb-0 mb-8" @click="addToCart(displayedProduct)" />
+      <ConfirmButton class="md:mb-0 mb-8" @click="addToCart(displayedProduct)" />
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ import { computed } from 'vue'
 import { productsStore } from '@/stores/products'
 import { useRoute, useRouter } from 'vue-router'
 import BackButton from '@/components/BackButton.vue'
-import CartButton from '@/components/CartButton.vue'
+import ConfirmButton from '@/components/ConfirmButton.vue'
 
 const productStore = productsStore()
 const route = useRoute()

@@ -13,7 +13,7 @@
           <p class="text-2xl">${{ product.price }}</p>
         </div>
       </div>
-      <CartButton @click="addToCart(product)" />
+      <ConfirmButton @click="addToCart(product)" />
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@
 import { computed } from 'vue'
 import { productsStore } from '@/stores/products'
 import { useRouter, useRoute } from 'vue-router'
-import CartButton from '@/components/CartButton.vue'
+import ConfirmButton from '@/components/ConfirmButton.vue'
 
 const productStore = productsStore()
 const router = useRouter()
