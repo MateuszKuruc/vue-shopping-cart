@@ -19,20 +19,20 @@
 import { ref } from 'vue'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'vue-router'
-import { productsStore } from '@/stores/products'
+import { useToast } from 'vue-toastification'
 
 const email = ref('')
 const password = ref('')
 const errMsg = ref()
 const router = useRouter()
-const productStore = productsStore()
+const toast = useToast()
 
 const signIntoAccount = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value)
-    .then((data) => {
+    .then(() => {
       console.log('successfully logged in')
 
-      productStore.login = true
+      toast.success('Logged in successfully!')
       router.push({ name: 'Catalog' })
     })
     .catch((error) => {
@@ -40,17 +40,21 @@ const signIntoAccount = () => {
       switch (error.code) {
         case 'auth/invalid-email':
           errMsg.value = 'Invalid email'
+          toast.error('Login failed, email is invalid')
           break
 
         case 'auth/user-not-found':
           errMsg.value = 'No account with that email was found'
+          toast.error('Login failed, no account with that email')
           break
 
         case 'auth/wrong-password':
           errMsg.value = 'Incorrect password'
+          toast.error('Login failed, password is incorrect')
           break
         default:
           errMsg.value = 'Email or password was incorrect'
+          toast.error('Login failed, email or password is incorrect')
           break
       }
     })
