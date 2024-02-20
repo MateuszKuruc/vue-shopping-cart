@@ -3,8 +3,8 @@
   <div class="text-center" v-if="!cart.length">
     <h1 class="text-3xl font-bold md:mt-0 mt-14">The cart is empty</h1>
   </div>
-  <div v-else>
-    <div v-for="product in cart" :key="product.id">
+  <div v-else class="flex flex-col w-[100%] md:pb-8 pb-8">
+    <div class="md:pb-8 pb-4" v-for="product in cart" :key="product.id">
       <div
         class="flex md:flex-row flex-col justify-between md:items-center shadow-2xl rounded-xl md:p-16 p-8 md:gap-0 gap-2"
       >
@@ -22,7 +22,10 @@
         <RemoveButton @click="removeFromCart(product.id)">Remove</RemoveButton>
       </div>
     </div>
-    <button @click="router.push({ name: 'ConfirmOrder' })">Confirm order and pay</button>
+
+    <ConfirmButton class="self-center" @click="router.push({ name: 'ConfirmOrder' })"
+      >Confirm and pay</ConfirmButton
+    >
   </div>
 </template>
 
@@ -32,6 +35,7 @@ import { useRouter } from 'vue-router'
 import BackButton from '../components/BackButton.vue'
 import RemoveButton from '@/components/RemoveButton.vue'
 import { onMounted, computed } from 'vue'
+import ConfirmButton from '@/components/ConfirmButton.vue'
 
 const productStore = productsStore()
 const router = useRouter()
