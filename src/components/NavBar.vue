@@ -7,9 +7,10 @@
     >
       <div class="flex items-center">
         <img
-          class="w-[150px] transition-all duration-500 ease-in-out"
+          class="w-[150px] transition-all duration-500 ease-in-out cursor-pointer"
           src="/feniks-logo.webp"
           alt=""
+          @click="router.push({ name: 'Catalog' })"
         />
       </div>
       <ul v-show="!mobile" class="flex items-center flex-1 justify-end text-black">
@@ -21,18 +22,25 @@
             >Home</router-link
           >
         </li>
-        <li class="uppercase mx-16 flex">
+        <li class="uppercase mx-8 flex">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
             :to="{ name: 'Categories' }"
             >Categories</router-link
           >
         </li>
-        <li class="uppercase flex">
+        <li class="uppercase flex mr-8">
           <router-link
             class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
             :to="{ name: 'About' }"
             >About</router-link
+          >
+        </li>
+        <li class="uppercase flex">
+          <router-link
+            class="font-medium text-white list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
+            :to="{ name: 'LoginPage' }"
+            >Login</router-link
           >
         </li>
 
@@ -81,6 +89,14 @@
               :to="{ name: 'About' }"
               >About</router-link
             >
+          </li>
+          <li class="p-3">
+            <router-link
+              class="font-medium text-black list-none text no-underline text-sm transition-all duration-500 ease-in-out pb-4 hover:text-green-500"
+              :to="{ name: 'LoginPage' }"
+            >
+              Login
+            </router-link>
           </li>
         </ul>
       </transition>
