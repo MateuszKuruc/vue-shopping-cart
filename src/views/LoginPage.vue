@@ -14,7 +14,7 @@
         >here</router-link
       >
     </p>
-    <p v-if="errMsg">{{ errMsg }}</p>
+    <p class="text-red-500" v-if="errMsg">Error: {{ errMsg }}</p>
 
     <ConfirmButton @click="signIntoAccount">Log in</ConfirmButton>
   </div>
@@ -48,7 +48,6 @@ const signIntoAccount = () => {
       router.push({ name: 'Catalog' })
     })
     .catch((error) => {
-      console.log(error.code)
       switch (error.code) {
         case 'auth/invalid-email':
           errMsg.value = 'Invalid email'
