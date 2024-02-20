@@ -48,6 +48,8 @@ onMounted(() => {
   const storedCart = localStorage.getItem('cart')
   productStore.setCart(storedCart ? JSON.parse(storedCart) : [])
   cart.value = productStore.cart
+
+  productStore.fetchProductsFromDB()
 })
 
 const removeFromCart = (id) => {
