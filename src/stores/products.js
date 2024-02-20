@@ -10,8 +10,7 @@ export const productsStore = defineStore({
   state: () => ({
     products: [],
     cart: [],
-    searchValue: '',
-    login: null
+    searchValue: ''
   }),
 
   actions: {
@@ -28,9 +27,6 @@ export const productsStore = defineStore({
       if (storedCart.length > 0) {
         this.cart = JSON.parse(storedCart)
       }
-    },
-    setLogin(value) {
-      this.login = value
     },
     setCart(data) {
       this.cart = data

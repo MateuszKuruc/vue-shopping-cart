@@ -177,7 +177,6 @@ const toggleMobileNav = () => {
 const handleSignOut = () => {
   const auth = getAuth()
   signOut(auth).then(() => {
-    productStore.setLogin(false)
     router.push({ name: 'Catalog' })
   })
 }
