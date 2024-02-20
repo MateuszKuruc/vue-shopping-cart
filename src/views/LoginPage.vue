@@ -21,17 +21,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import { useToast } from 'vue-toastification'
 import ConfirmButton from '@/components/ConfirmButton.vue'
+import { productsStore } from '@/stores/products'
 
 const email = ref('')
 const password = ref('')
 const errMsg = ref()
 const router = useRouter()
 const toast = useToast()
+const productStore = productsStore()
+
+onMounted(() => {
+  productStore.fetchProductsFromDB()
+})
 
 const signIntoAccount = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value)
