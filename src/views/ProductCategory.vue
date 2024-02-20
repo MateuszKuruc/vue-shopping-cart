@@ -5,7 +5,7 @@
       v-for="product in filteredProducts"
       :key="product.id"
     >
-      <div @click="openProductPage(product.id)">
+      <div class="w-[100%]" @click="openProductPage(product.id)">
         <img class="w-[100%] rounded-xl object-cover" :src="product.thumbnail" alt="" />
         <div class="h-[150px] flex flex-col justify-between gap-2 mt-4">
           <h2 class="text-xl font-bold">{{ product.brand }}</h2>
