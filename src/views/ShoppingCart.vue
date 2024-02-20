@@ -1,5 +1,5 @@
 <template>
-  <BackButton class="md:ml-8 ml-2" @click="router.go(-1)" />
+  <BackButton class="md:ml-8 ml-2" @click="router.go(-1)">Previous page</BackButton>
   <div class="text-center" v-if="!cart.length">
     <h1 class="text-3xl font-bold md:mt-0 mt-14">The cart is empty</h1>
   </div>
@@ -30,16 +30,19 @@ import { productsStore } from '@/stores/products'
 import { useRouter } from 'vue-router'
 import BackButton from '../components/BackButton.vue'
 import RemoveButton from '@/components/RemoveButton.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, computed } from 'vue'
 
 const productStore = productsStore()
 const router = useRouter()
 
-const cart = ref([])
+const cart = computed(() => {
+  return productStore.cart
+})
 
 onMounted(() => {
   const storedCart = localStorage.getItem('cart')
   productStore.setCart(storedCart ? JSON.parse(storedCart) : [])
+  cart.value = productStore.cart
 })
 
 const removeFromCart = (id) => {
