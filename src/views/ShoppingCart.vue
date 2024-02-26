@@ -8,7 +8,12 @@
       <div
         class="flex md:flex-row flex-col justify-between md:items-center shadow-2xl rounded-xl md:p-16 p-8 md:gap-0 gap-2"
       >
-        <img :src="product.thumbnail" alt="" class="rounded-xl md:w-[20%] w-[100%]" />
+        <img
+          :src="product.thumbnail"
+          alt=""
+          @click="openProductPage(product.id)"
+          class="rounded-xl md:w-[20%] w-[100%] hover:cursor-pointer"
+        />
         <span>Brand: {{ product.brand }}</span>
         <span>Category: {{ product.category }}</span>
         <span>Price: ${{ product.price }}</span>
@@ -43,6 +48,10 @@ const router = useRouter()
 const cart = computed(() => {
   return productStore.cart
 })
+
+const openProductPage = (id) => {
+  router.push({ name: 'ProductView', params: { id } })
+}
 
 onMounted(() => {
   const storedCart = localStorage.getItem('cart')
