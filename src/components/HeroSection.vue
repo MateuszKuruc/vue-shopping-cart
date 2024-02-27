@@ -4,7 +4,7 @@
   >
     <img class="h-full w-full object-cover rounded-xl" src="/hero.png" alt="" />
   </div>
-  <div class="flex gap-4 justify-center md:pt-12 pt-[150px]">
+  <div class="flex gap-4 justify-center md:pt-12 pt-[150px] text-xl mb-4">
     <router-link class="hover:text-green-500 ease-in-out duration-500" to="/"
       >All products</router-link
     >
