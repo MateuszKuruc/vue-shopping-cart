@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-black z-99 w-[100%] max-w-[1920px] fixed transition-all duration-500 ease-in-out text-white rounded-b-xl"
+    class="bg-black z-99 w-[100%] max-w-[1920px] transition-all duration-500 ease-in-out text-white rounded-b-xl md:fixed relative mb-[-100px]"
   >
     <nav
       class="relative flex flex-row py-12 px-0 transition-all duration-500 ease-in-out w-[90%] my-0 mx-auto max-w-[1140px] max-h-[130px]"
