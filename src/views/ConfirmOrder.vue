@@ -4,7 +4,7 @@
     <div class="text-center" v-if="!cart.length">
       <h1 class="text-3xl font-bold md:mt-0 mt-14">The cart is empty</h1>
     </div>
-    <div v-else class="flex flex-col w-[1200px] mt-8 md:pb-8 pb-8">
+    <div v-else class="flex flex-col w-[1600px] mt-8 md:pb-8 pb-8">
       <div class="md:pb-2 pb-4" v-for="product in cart" :key="product.id">
         <div
           class="flex flex-row shadow-2xl rounded-xl md:p-2 p-8 md:gap-0 mx-8 border-2 border-green-500"
@@ -26,6 +26,10 @@
               Price:
               <span class="font-bold"> ${{ product.price }} </span>
             </p>
+            <p class="w-[300px]">
+              Sum:
+              <span class="font-bold"> ${{ product.price * product.quantity }} </span>
+            </p>
             <p>
               Quantity:
               <span class="font-bold"> {{ product.quantity }} </span>
@@ -34,10 +38,9 @@
         </div>
       </div>
       <div class="font-bold self-center">
-        <p>Item total: </p>
-        <p>Delivery: </p>
-        <p>Total price: </p>
-
+        <p>Item total:</p>
+        <p>Delivery:</p>
+        <p>Total price:</p>
       </div>
 
       <ConfirmButton class="self-center" @click="router.push({ name: 'ConfirmOrder' })"
