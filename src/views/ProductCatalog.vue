@@ -7,7 +7,7 @@
     >
       <div class="w-[100%]" @click="openProductPage(product.id)">
         <img class="w-[100%] rounded-xl object-cover" :src="product.thumbnail" alt="" />
-        <div class="h-[150px] flex flex-col justify-between gap-2 mt-4">
+        <div class="max-h-[100%] flex flex-col justify-between gap-2 mt-4">
           <h2 class="text-xl font-bold">{{ product.brand }}</h2>
           <p>{{ product.description }}</p>
           <p class="text-2xl">${{ product.price }}</p>
