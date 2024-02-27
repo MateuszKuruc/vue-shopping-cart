@@ -13,6 +13,12 @@ export const productsStore = defineStore({
     searchValue: ''
   }),
 
+  getters: {
+    totalItemsPrice() {
+      return this.cart.reduce((total, item) => total + item.price * item.quantity, 0)
+    }
+  },
+
   actions: {
     async fetchProductsFromDB() {
       const productCollection = await getDocs(collection(db, 'products'))

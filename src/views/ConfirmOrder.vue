@@ -37,10 +37,23 @@
           </div>
         </div>
       </div>
-      <div class="font-bold self-center">
-        <p>Item total:</p>
-        <p>Delivery:</p>
-        <p>Total price:</p>
+      <div class="font-bold self-center my-4">
+        <p>
+          Item total: <span class="text-green-700">${{ productStore.totalItemsPrice }}</span>
+        </p>
+        <p>
+          Delivery cost:
+          <span class="text-green-700">{{ deliveryCost(productStore.totalItemsPrice) }}</span>
+          <span class="block text-sm font-normal italic"
+            >Delivery cost: $0 for orders above $250, otherwise $16</span
+          >
+        </p>
+        <p>
+          Total price:
+          <span class="text-green-700"
+            >${{ productStore.totalItemsPrice + deliveryCost(productStore.totalItemsPrice) }}</span
+          >
+        </p>
       </div>
 
       <ConfirmButton class="self-center" @click="router.push({ name: 'ConfirmOrder' })"
@@ -57,6 +70,14 @@ import { onMounted, computed } from 'vue'
 import ConfirmButton from '@/components/ConfirmButton.vue'
 
 const productStore = productsStore()
+
+const deliveryCost = (total) => {
+  if (total > 250) {
+    return 0
+  } else {
+    return 16
+  }
+}
 
 const cart = computed(() => {
   return productStore.cart
