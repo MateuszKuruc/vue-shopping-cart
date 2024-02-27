@@ -5,6 +5,7 @@
     <nav
       class="relative flex flex-row py-12 px-0 transition-all duration-500 ease-in-out w-[90%] my-0 mx-auto max-w-[1140px] max-h-[130px]"
     >
+      <p class="lg:block hidden uppercase text-2xl">Feniks Shop</p>
       <div class="flex items-center">
         <img
           class="w-[150px] transition-all duration-500 ease-in-out cursor-pointer"
