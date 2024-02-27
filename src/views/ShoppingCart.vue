@@ -14,6 +14,7 @@
           @click="openProductPage(product.id)"
           class="rounded-xl md:w-[20%] w-[100%] hover:cursor-pointer"
         />
+        <span class="font-bold">{{ product.title }}</span>
         <span>Brand: {{ product.brand }}</span>
         <span>Category: {{ product.category }}</span>
         <span>Price: ${{ product.price }}</span>
