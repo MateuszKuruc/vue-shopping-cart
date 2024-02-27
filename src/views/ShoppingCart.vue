@@ -4,6 +4,10 @@
     <h1 class="text-3xl font-bold md:mt-0 mt-14">The cart is empty</h1>
   </div>
   <div v-else class="flex flex-col w-[100%] md:pb-8 pb-8">
+    <h2 class="self-end my-8 mr-12 text-2xl">
+      Total in cart:
+      <span class="text-green-500 font-bold">$ {{ productStore.totalItemsPrice }}</span>
+    </h2>
     <div class="md:pb-8 pb-4" v-for="product in cart" :key="product.id">
       <div
         class="flex md:flex-row flex-col justify-between md:items-center shadow-2xl rounded-xl md:p-16 p-8 md:gap-0 gap-2"
