@@ -32,6 +32,7 @@
     <ConfirmButton class="self-center" @click="router.push({ name: 'ConfirmOrder' })"
       >Confirm and pay</ConfirmButton
     >
+    <RemoveButton class="self-center" @click="emptyTheCart">Empty the cart</RemoveButton>
   </div>
 </template>
 
@@ -49,6 +50,10 @@ const router = useRouter()
 const cart = computed(() => {
   return productStore.cart
 })
+
+const emptyTheCart = () => {
+  productStore.emptyCart()
+}
 
 const openProductPage = (id) => {
   router.push({ name: 'ProductView', params: { id } })

@@ -63,6 +63,11 @@ export const productsStore = defineStore({
       this.cart = this.cart.filter((item) => item.id !== id)
       localStorage.setItem('cart', JSON.stringify(this.cart))
       toast.info('Item removed from cart')
+    },
+    emptyCart() {
+      this.cart = []
+      localStorage.removeItem('cart')
+      toast.info('Cart has been emptied!')
     }
   }
 })
