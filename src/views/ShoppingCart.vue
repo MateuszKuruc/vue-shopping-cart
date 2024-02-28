@@ -6,7 +6,7 @@
   <div v-else class="flex flex-col w-[100%] md:pb-8 pb-8">
     <h2 class="self-end my-8 mr-12 text-2xl">
       Total in cart:
-      <span class="text-green-500 font-bold">$ {{ productStore.totalItemsPrice }}</span>
+      <span class="text-green-500 font-bold">${{ productStore.totalItemsPrice }}</span>
     </h2>
     <div class="md:pb-8 pb-4" v-for="product in cart" :key="product.id">
       <div
