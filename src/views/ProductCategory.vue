@@ -1,16 +1,17 @@
 <template>
   <div class="flex justify-start flex-wrap md:mt-16 mt-8 md:mb-32 mb-8">
     <div
-      class="category-container flex flex-col items-center"
+      class="category-container flex flex-col items-center justify-between"
       v-for="product in filteredProducts"
       :key="product.id"
     >
       <div class="w-[100%]" @click="openProductPage(product.id)">
         <img class="w-[100%] rounded-xl object-cover" :src="product.thumbnail" alt="" />
-        <div class="h-[150px] flex flex-col justify-between gap-2 mt-4">
-          <h2 class="text-xl font-bold">{{ product.brand }}</h2>
+        <div class="max-h-[100%] flex flex-col justify-between gap-2 mt-4">
+          <h2 class="text-3xl font-bold">{{ product.title }}</h2>
           <p>{{ product.description }}</p>
-          <p class="text-2xl">${{ product.price }}</p>
+          <p class="text-lg">In stock: <span class="text-green-500 font-bold">yes</span></p>
+          <p class="text-3xl font-bold">${{ product.price }}</p>
         </div>
       </div>
       <ConfirmButton @click="addToCart(product)" />
