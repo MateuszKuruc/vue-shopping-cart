@@ -68,8 +68,10 @@ import { productsStore } from '@/stores/products'
 import BackButton from '../components/BackButton.vue'
 import { onMounted, computed } from 'vue'
 import ConfirmButton from '@/components/ConfirmButton.vue'
+import { useRouter } from 'vue-router'
 
 const productStore = productsStore()
+const router = useRouter()
 
 const deliveryCost = (total) => {
   if (total > 250) {

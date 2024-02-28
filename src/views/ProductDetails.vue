@@ -1,7 +1,7 @@
 <template>
   <BackButton class="md:ml-8 ml-2" @click="router.go(-1)">Previous page</BackButton>
   <div v-if="displayedProduct" class="flex md:flex-row flex-col mt-12">
-    <div class="md:ml-8 md:mr-24 md:w-[600px] mx-2 border-2">
+    <div class="md:ml-8 md:mr-24 md:w-[600px] mx-2">
       <Swiper
         :modules="modules"
         :slides-per-view="1"

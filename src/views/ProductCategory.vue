@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-start flex-wrap md:mt-16 mt-8 md:mb-32 mb-8">
+  <div class="flex justify-start flex-wrap md:mt-16 mt-8 md:mb-32 mb-8 hover:cursor-pointer">
     <div
       class="category-container flex flex-col items-center justify-between"
       v-for="product in filteredProducts"
